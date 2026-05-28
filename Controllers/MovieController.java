@@ -18,6 +18,13 @@ public class MovieController {
             URL url = new URI(BASE_URL + "&t=" + query).toURL();
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
+
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    result.append(line);
+                }
+            }
             return result.toString();
         } catch (Exception e) {
             return "Error: " + e.getMessage();
