@@ -178,7 +178,12 @@ public class MainFrame extends JFrame {
         });
     }
 
-   
+    private void loadUserTable() {
+        tableModel.setDataVector(null, new String[]{"ID", "Nama", "Movie ID", "Tiket", "Total"});
+        for (Pengunjung p : pengunjungModel.getAllPengunjung()) {
+            tableModel.addRow(new Object[]{p.getId(), p.getNama(), p.getMovieId(), p.getJumlahTiket(), p.getTotalHarga()});
+        }
+    }
 
     private void clearForm() {
         txtNama.setText("");
