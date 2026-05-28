@@ -13,14 +13,14 @@ public class MainFrame extends JFrame {
     private DefaultTableModel tableModel;
     private MovieController movieController = new MovieController();
     private PengunjungModel pengunjungModel = new PengunjungModel();
-    private int selectedUserId = -1; 
+    private int selectedUserId = -1;
 
     public MainFrame() {
         setTitle("Admin Bioskop - Mataram");
         setSize(1000, 650);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setLayout(new BorderLayout(10, 10)); 
+        setLayout(new BorderLayout(10, 10));
 
         // PANEL KIRI (FORM) - HIDDEN BY DEFAULT
         panelKiri = new JPanel(new GridLayout(12, 1, 5, 5));
@@ -178,5 +178,11 @@ public class MainFrame extends JFrame {
         });
     }
 
-    
+   
+
+    private void clearForm() {
+        txtNama.setText("");
+        txtMovieId.setText("");
+        txtJumlahTiket.setText("");
+    }
 }
